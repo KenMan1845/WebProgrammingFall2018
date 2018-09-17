@@ -3,8 +3,6 @@ New Repository Created
 
 App Features
 
-First you would create an account. It would say login and signup.
-
 When you first go into the app you would select your body type. There will be pictures of different body types.
 Then it would ask how much exercise you do. 
 
