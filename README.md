@@ -1,4 +1,4 @@
-# WebProgrammingFall2018
+# Fitness App
 New Repository Created
 
 App Features
