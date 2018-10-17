@@ -60,14 +60,18 @@
       </p>
         <p style = "color: black;">
           Password:<br>
-        <input type="text" name="password">
+        <input type="password" name="password">
 
         </p>
         
       </form>
        <br>
-       <button class="button">Login</button>
-
+       <button onclick="newWindow()">Login</button>
+       <script>
+       function newWindow(){
+        window.open("MainScreen.html");
+    }
+  </script>
     </div>
     
     <!-- Optional JavaScript -->
