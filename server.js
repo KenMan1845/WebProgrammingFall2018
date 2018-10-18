@@ -1,5 +1,5 @@
 const express = require('express');
-const game = require('./Functions');
+const game = require('./index');
 
 const app = express();
 
