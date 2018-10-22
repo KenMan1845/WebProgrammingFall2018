@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require('./myApp');
+const People = require('./test');
 const app = express();
 const port = 3000;
 const server = "localhost";

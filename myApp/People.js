@@ -1,16 +1,16 @@
 const express = require('express');
-const {User, Exercise, Goal, People} = require('./user');
+const {User, Exercise, Goal, People} = require('./User');
 const Joi = require('joi');
 const app = express.Router();
 app.use(express.json());
 
-var users = new Users();
+var people = new People();
 var mainuser = new User();
 let userlistx = [];
 
 
 app.get('/', (req, res) => {
-    res.send(users.userlist);
+    res.send(people.userlist);
 });
 
 app.post('/', (req, res) => {
@@ -95,3 +95,4 @@ app.put('/:username', (req, res) => {
 app.put('/:password', (req, res) => {
     mainuser = People.userlist.find(c => c.password === req.params.password);
 })
+module.exports = app;
