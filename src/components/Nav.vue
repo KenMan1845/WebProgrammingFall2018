@@ -3,14 +3,15 @@
         <ul class="navbar-nav">
             
             <li class="nav-item">
-                <router-link class="nav-link" exact-active-class="active" to="/">Home</router-link>
-            </li>
-            <li class="nav-item">
                 <router-link class="nav-link" exact-active-class="active" to="/about">About</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" exact-active-class="active" to="/play">Goals</router-link>
+                <router-link class="nav-link" exact-active-class="active" to="/goals">Goals</router-link>
             </li>
+                 <li class="nav-item">
+                <router-link class="nav-link" exact-active-class="active" to="/calories">Quick Calories</router-link>
+            </li>
+
         </ul>
     </nav>
 </template>

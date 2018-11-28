@@ -8,11 +8,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
+    
     {
       path: '/about',
       name: 'about',
@@ -22,10 +18,10 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/play',
-      name: 'play',
-      component: () => import(/* webpackChunkName: "game" */ './views/Game.vue')
-    }
+      path: '/goals',
+      name: 'goals',
+      component: () => import(/* webpackChunkName: "goal" */ './views/Goals.vue')
+    },
 
   ]
 })
