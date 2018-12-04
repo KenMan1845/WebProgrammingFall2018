@@ -3,7 +3,7 @@ const game = require('./game/controller');
 
 const app = express();
 
-const port = 1036;
+const port = 1025;
 const server = "localhost";
 
 app.use(function(req, res, next) {

@@ -1,37 +1,35 @@
 <template>
   <div>
   <div class="userDataSubmissions">
-    {{loggedIn}}
+    
+  
+    <h1>Please Login to Continue</h1>
+    
 
-    <h1>Please Sign in to Continue</h1>
-    <h2>Signed in as: {{name}}</h2>
-
-    <form id="signup-form" @click.prevent>
-      <input type="text" placeholder="Enter your username" v-model="name"/>
-      <button @click.prevent="processForm()">Submit</button>
-    </form>
+      <div v-if="loggedIn === null">
+    <button @click.prevent="login">Login</button>
+    </div>
+    <div id="submit" >
+      <input type="text" placeholder="Enter your username" v-model="username"/>
+      <button @click.prevent="Submit">Submit</button>
+      
+    </div>
     <p>
-      User is named: {{userList}}</p>
-  </div>
+      User logged in: {{name.userList}}</p>
 
-  
-
-  
-  <div class="friendAdd">
-      <h3>Adding friend of id: {{id}}</h3>
-      <form id="signup-form" @click.prevent="">
-        <input type="text" placeholder="Enter a user id" v-model="id"/>
-        <button >Submit</button>
-      </form>
+    <div id="friends">
       <p>
-        <i v-if="id === userdata.id">Userdata of id {{id}} is: {{userdata}}</i>
-        <i v-else>No user data could be found.</i>
-      </p>
-  </div>
-  
-<button @click.prevent="login()">Login</button>
+        Friends List: {{"[user: Dan, Goal Weight: 175, Exercises: Jogging,Swimming user: David, Goal Weight: 200, Exercises: Lifting Weights,Basketball user: Molly, Goal Weight: 150, Exercises: Dance, Gymnastics]"}}</p>
 
-</div>
+
+    </div>
+    
+    <button @click.prevent="login()">Login</button>
+
+  </div>
+
+  </div>
+
 </template>
 
 <script>
@@ -40,46 +38,42 @@
   export default{
     data(){
         return{
-          name: '',
+         name: {
+          username: '',
           id: '',
           loggedIn: '',
           userdata: '',
-          userList: [],
-        }
+          userList: ["Kenny"],
+         }
+          }
+        
     },
-    methods: {
-      processForm() {
-        if(this.name.length > 0){
-          api.registerUser(this.name)
+     methods: {
+       Submit(){
+          if(this.username.length > 0){
+               api.registerUser(this.username)
           .then((response) => {
             this.userList.push(response);
           });
-          this.name = '';
-        }
-      },
-      userSearch() {
-        if(this.id.length > 0){
-          api.findUserById(this.id)
-          .then((response) => {
-              //this.name = response.name;
-              this.id = response.id;
-              this.userdata = response;
-          });
-        }
-      },
-      login() {
-            fb.FBLogin()
-            api.getLastUser()
-            .then((response) => {
-              //console.log('TRREST');
-              this.name = response.name;
-              this.loggedIn = 'User logged in is: ' + response.name;
-              this.userList.push(response);
-            });
-      }, 
-    },
+          this.username = '';
+          this.id = ''
+            }
+        },
+        login() {
+            fb.FBLogin(() => {
+              api.getCurrentUser()
+              .then((response) => {
+                this.loggedIn = response;
+                this.id = response.id;
+                this.userList.push(response);
+              })
+            })
+        }, 
+    
     beforeMount(){
       this.login();
     },
+     }
   }
+  
 </script>

@@ -19,7 +19,7 @@
 
 // @ is an alias to /src
 
-document.body.style.backgroundColor = 'red';
+document.body.style.backgroundColor = 'green';
 import Nav from '@/components/Nav.vue'
 
 export default {

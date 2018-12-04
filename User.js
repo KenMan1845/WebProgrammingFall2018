@@ -1,17 +1,15 @@
-//list to hold all of our users
-class UserList {
+class People{
     constructor(){
-        this.users = [];
+        this.userlist = [];
     }
 }
-
 class User{
-    constructor(username, id){
+    constructor(username,password){
         this.username = username;
+        this.password = password;
         this.exercises = [];
         this.goals = [];
         this.friends = [];
-        this.id = id;
     }
 }
 class Exercise{
@@ -29,7 +27,4 @@ class Goal{
         this.value = value;
         this.id = 0;
     }
-}
-module.exports = {
-    User, Exercise, Goal, UserList
 }

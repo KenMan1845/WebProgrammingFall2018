@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -22,6 +21,17 @@ export default new Router({
       name: 'goals',
       component: () => import(/* webpackChunkName: "goal" */ './views/Goals.vue')
     },
+    {
+      path: '/exercise',
+      name: 'exercise',
+      component: () => import(/* webpackChunkName: "calories" */ './views/Exercise.vue')
+    },
+    {
+      path: '/quickC',
+      name: 'quickC',
+      component: () => import(/* webpackChunkName: "quickc" */ './views/QuickC.vue')
 
+    }
   ]
+   
 })
